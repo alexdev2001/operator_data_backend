@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pandas
+matplotlib
+statsmodels
+prophet==1.1
+numpy
+reportlab
+apscheduler
+python-multipart
+openpyxl
