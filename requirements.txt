@@ -1,11 +1,10 @@
 fastapi
-uvicorn[standard]
+uvicorn
 pandas
 matplotlib
 statsmodels
-prophet==1.1
-numpy
 reportlab
 apscheduler
 python-multipart
 openpyxl
+prophet==1.1

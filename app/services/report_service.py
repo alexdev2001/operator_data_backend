@@ -34,7 +34,6 @@ def generate_full_report(file_name: str, sheet_names: list[str]):
 
     c.setFont("Helvetica", 13)
     c.drawCentredString(width / 2, height - 160, "Comprehensive Performance Analysis by Operator")
-    c.drawCentredString(width / 2, height - 190, f"Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')}")
 
     c.setFont("Helvetica", 11)
     intro_text = (

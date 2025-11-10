@@ -11,7 +11,7 @@ app = FastAPI(title="GGR Analysis API", version="1.0")
 # Allow frontend (React/Next.js) access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or specify your frontend origin
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -1,22 +1,19 @@
-# Use conda-forge Miniforge image (prebuilt binaries for arm64)
 FROM condaforge/mambaforge:latest
 
-# Set working directory
 WORKDIR /app
 
-# Create and activate environment
+# Create env
 RUN mamba create -n ggr python=3.11 -y
-SHELL ["conda", "run", "-n", "ggr", "/bin/bash", "-c"]
 
-# Install dependencies in environment
-RUN mamba install -n ggr -y \
-    fastapi uvicorn pandas matplotlib statsmodels prophet reportlab apscheduler python-multipart openpyxl
+# Activate env and install dependencies (all prebuilt)
+RUN mamba run -n ggr mamba install -y \
+    fastapi uvicorn pandas matplotlib statsmodels reportlab \
+    apscheduler python-multipart openpyxl prophet=1.1
 
-# Copy application files
+# Copy app files
 COPY ./app ./app
 
-# Expose port
 EXPOSE 8000
 
-# Run FastAPI
+# Run the app
 CMD ["conda", "run", "-n", "ggr", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
